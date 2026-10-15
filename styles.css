@@ -9,3 +9,25 @@
 .clinic-image{position:relative;overflow:hidden;border-radius:12px 90px 12px 12px}.clinic-image>span{position:absolute;bottom:0;left:0;right:0;padding:38px 25px 22px;background:linear-gradient(transparent,#163b34e6);color:white;font-size:16px}
 .team-placeholder{gap:28px}.team-photo{width:140px;flex-shrink:0;border-radius:12px}.team-placeholder h3{font-size:20px}.team-placeholder p{font-size:13px}.contact-photo{width:140px;border-radius:12px;margin-bottom:24px}
 @media(max-width:600px){.hero-art{height:auto}.service-content{padding:18px 14px}.team-photo{width:95px}.team-placeholder{gap:18px}.team-placeholder h3{font-size:17px}.team-placeholder p{font-size:12px}.contact-photo{width:110px}.art-caption{font-size:6px;right:14px}.clinic-image>span{font-size:14px}}
+
+/* Motion is optional: content remains visible without JavaScript. */
+@media(prefers-reduced-motion:no-preference){
+  .reveal-pending{opacity:0;transform:translateY(22px);transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.2,.7,.3,1) var(--reveal-delay,0ms)}
+  .reveal-pending.is-visible{opacity:1;transform:translateY(0)}
+  .button span,.text-link span{display:inline-block;transition:transform .25s ease}
+  .button:hover span,.button:focus-visible span,.text-link:hover span,.text-link:focus-visible span{transform:translate(3px,-3px)}
+  .button:active{transform:translateY(0) scale(.98)}
+  .art-card{animation:welcome-card 1s ease-out .2s both}
+  @keyframes welcome-card{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .treatment-grid article,.team-placeholder{transition:box-shadow .3s ease,border-color .3s ease,opacity .7s ease var(--reveal-delay,0ms),transform .4s ease}
+  .treatment-grid article.is-visible:hover{transform:translateY(-6px);box-shadow:0 14px 28px #163b3412;border-color:#9eaf94}
+  .team-placeholder:hover{border-color:#9eaf94}
+  .photo-tile img{transition:transform .6s ease}
+  .treatment-grid article:hover img,.clinic-image:hover img,.team-placeholder:hover img{transform:scale(1.015)}
+}
+@media(prefers-reduced-motion:reduce){
+  .reveal-pending{opacity:1;transform:none}
+  .art-card,.photo-tile img,.button,.button span,.text-link span,.treatment-grid article,.team-placeholder{animation:none;transition:none}
+}
